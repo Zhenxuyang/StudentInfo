@@ -115,9 +115,7 @@ cLink::cLink(char *name,int age,int id,int gender,int birth_year,int birth_month
 
 cLink::cLink(){}
 
-cStudentInfo& cLink::getData(){
-	return sData;
-}
+cStudentInfo& cLink::getData(){return sData;}
 
 cLink::~cLink(){}
 
@@ -234,13 +232,11 @@ bool cList::Delete(char *name){
 	cLink* ptr2;
 	ptr1=first;
 	ptr2=first->next;
-
 	//链表为空
 	if(num==0){
 		cout<<"链表为空"<<endl;
 		return false;
-	}
-	
+	}	
 	//与头节点匹配
 	if(!strcmp(ptr1->sData.getName(),name)){
 		cout<<"删去了头节点"<<endl;
@@ -250,7 +246,6 @@ bool cList::Delete(char *name){
 		num--;
 		return true;
 	}
-
 	while (ptr2!=NULL)
 	{
 		//找到name值匹配的节点并删除
@@ -268,8 +263,7 @@ bool cList::Delete(char *name){
 		}
 		ptr1=ptr1->next;
 		ptr2=ptr2->next;
-	}
-	
+	}	
 	return false;
 }
 
@@ -278,8 +272,7 @@ bool cList::Delete(int id){
 	cLink* ptr1;
 	cLink* ptr2;
 	ptr1=first;
-	ptr2=first->next;
-	
+	ptr2=first->next;	
 	//链表为空
 	if(num==0){
 		cout<<"链表为空"<<endl;
@@ -291,8 +284,7 @@ bool cList::Delete(int id){
 		first=first->next;
 		num--;
 		return true;
-	}
-	
+	}	
 	while (ptr2!=NULL)
 	{
 		//找到name值匹配的节点并删除
@@ -307,8 +299,7 @@ bool cList::Delete(int id){
 		}
 		ptr1=ptr1->next;
 		ptr2=ptr2->next;
-	}
-	
+	}	
 	return false;
 }
 
@@ -362,7 +353,6 @@ cLink* cList::getMini(){
 		}
 		return prt;
 	}
-
 }
 
 //排序输出所有节点信息
@@ -422,8 +412,6 @@ int cList::getnum(){return num;}
 cList::~cList(){}
 
 
-
-
 //--------------------------------------------------------------------------------------------------------------------------------------
 //添加函数 
 void Add(cList& list){
@@ -468,7 +456,6 @@ void Find_byName(cList& list){
 	cout<<endl<<endl;
 }
 
-
 //按学号查找 
 void Find_byId(cList& list){
 	cout<<"-------按学号查找-------"<<endl;
@@ -494,7 +481,6 @@ void Find_byId(cList& list){
 	}
 	cout<<endl<<endl;
 }
-
 
 //按姓名删除
 void Delete_byName(cList &list){
@@ -534,7 +520,6 @@ void getMax(cList &list){
 	cout<<"英语："<<cstudent->getgrade_English()<<endl; 
 	cout<<endl<<endl;
 } 
-
 
 //得到最小值 
 void getMini(cList &list){
@@ -577,11 +562,8 @@ void Select(int key,cList &list){
 	}
 }
 
-
-
 //菜单的设计
 void menu_main(){
-	//新建cList类 
 	freopen("input.txt","r",stdin);
 	cList InfoList;
 	char c;
@@ -601,23 +583,10 @@ void menu_main(){
 		Select(c,InfoList);
 		cout<<"当前学生总数为"<<InfoList.num<<endl;
 		cout<<"输入1~9进行操作"<<endl;
-
 	}
-
 }
-
-
-
 
 int main(){
 	menu_main();
-	/*cList clist;
-	cLink clink1("zhen1",201492196,19,1,1996,11,20,60,60,60);
-	cLink clink2("zhen2",201458487,19,2,1998,11,06,60,60,60);
-	clist.Add(clink1);
-	clist.Add(clink2);
-	cout<<clist.Search("zhen1").getData().getName();
-	cout<<clist.first->getData().getName();*/
-
 	return 0;
 }
